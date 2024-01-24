@@ -219,7 +219,7 @@ let genderRobot = "robot";
 for(let i = 0; i < starWarsCharacters.length; i ++){
   let gender = starWarsCharacters[i].gender;
 if (gender === "n/a"){
-  starWarsCharacters.splice(gender, 1, "robot")
+  starWarsCharacters[i].gender = "robot";
 }
 };
 console.log(starWarsCharacters);
