@@ -220,7 +220,7 @@ for(let i = 0; i < starWarsCharacters.length; i ++){
   let gender = starWarsCharacters[i].gender;
 if (gender === "n/a"){
   starWarsCharacters[i].gender = "robot";
-}
+};
 };
 console.log(starWarsCharacters);
 
@@ -229,6 +229,41 @@ console.log(starWarsCharacters);
   Una volta fatto crea un console.log per controllare la proprietà length di "charactersNames" prima e dopo l'operazione.
 */
 
+console.log(femaleCharacters);
+console.log(charactersNames);
+
+for(let i = 0; i< femaleCharacters.length; i++){
+  let nameF = femaleCharacters[i].name;
+
+  for(let n = 0; n < charactersNames.length; n++){
+
+    if(nameF === charactersNames[n]){
+      charactersNames.splice(n, 1);
+    };
+  };
+};
+console.log(charactersNames);
+
+// correzione - altro metodo
+
+for(let i=0; i < charactersNames.length; i++){
+  const characterStr = charactersNames[i];
+
+  for(let n = 0; n < femaleCharacters.length; n++){
+    const femCharObj = femaleCharacters[n];
+
+    if(femCharObj.name === characterStr){
+      charactersNames.splice(i, 1)
+    }
+  }
+}
+console.log(charactersNames);
+
+
 /* --EXTRA-- ESERCIZIO 10
   Crea una funzionalità che selezioni un elemento casuale dall'array "starWarsCharacters" e ne stampi in console le proprietà in modo discorsivo (a tuo piacimento).
 */
+
+const randIndex = Math.floor(Math.random() * starWarsCharacters.length);
+const randomlySelectedCharacter = starWarsCharacters[randIndex];
+console.log("il personaggio", randomlySelectedCharacter.name, "è alto", randomlySelectedCharacter.height, "con i capelli di colore", randomlySelectedCharacter.hair_color, "...");
